@@ -1,0 +1,19 @@
+
+<main>
+  <div class="product-container" *ngFor="let i of x">
+    <div class="product-image" >
+      <img src="{{i.image}}" alt="Product Image">
+    </div>
+    <div class="product-info">
+      <h2>{{i.title}}</h2>
+      <p>{{i.description}}</p>
+      <h3>{{i.price}}</h3>
+      <form action="">
+
+
+        <button [routerLink]="['/product', i.id]" >more</button>
+      </form>
+    </div>
+  </div>
+
+</main>

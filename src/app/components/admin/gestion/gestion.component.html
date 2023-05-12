@@ -1,0 +1,44 @@
+<div class="container">
+  <h1>Admin Control Page</h1>
+
+	<div class="form-container">
+		<h2>Add Product</h2>
+		<form>
+			<label for="title">Title:</label>
+			<input [(ngModel)]="title" type="text" id="title" name="title" required>
+
+			<label for="price">Price:</label>
+			<input [(ngModel)]="price" type="number" id="price" name="price" step="0.01" min="0" required>
+
+			<label for="description">Description:</label>
+			<textarea [(ngModel)]="description" id="description" name="description" required></textarea>
+
+			<label for="image">Image URL:</label>
+			<input [(ngModel)]="image" type="text" id="image" name="image" required>
+
+			<label for="category">Category:</label>
+			<select [(ngModel)]="category" id="category" name="category" required>
+				<option *ngFor="let i of y" value="{{i}}">{{i}}</option>
+
+			</select>
+
+			<input (click)="addproduct()" type="submit" value="Add Product">
+		</form>
+	</div>
+
+	<div class="products-container">
+		<h2>Current Products</h2>
+
+		<div *ngFor="let i of x" class="product">
+			<img src="{{i.image}}" alt="Product Image">
+			<div>
+				<h3>{{i.title}}</h3>
+				<p>{{i.price}}</p>
+					<button (click)="delete(i.id)">Delete</button>
+			</div>
+		</div>
+
+
+
+	</div>
+</div>
